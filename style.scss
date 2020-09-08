@@ -1,0 +1,124 @@
+*{margin:0; padding:0; box-sizing: border-box; font-family: "Times New Roman", Times, serif; font-weight: 800;}
+
+a{text-decoration: none;}
+body{background-color:#f6f6f6}
+@import "mix.scss";
+/* Header section starts */
+.header{height:55px; width:$fullwidth; border-bottom: 1px solid #c6c6c6 ; background-color:$color;
+    .logo h2{color:#d4162d; padding:12px 20px; float:left;}
+}
+
+/****** Header section ends*******/
+
+/* main content section starts */
+#main-content{float:left; width:$fullwidth}
+.left-section{float:left; width:70%; }//display: inline-block;}
+.container-content{background-color:$color; margin:15px 10px 10px 10px; box-shadow: $shadow;} 
+.head{
+    @include head-font;
+    p{color:#797979; font-size:12px; margin-top: 10px;}
+    h5{color:#202020;}
+    hr {border:$borders; margin-top:20px;}
+}
+.price{
+    p{padding:7px 0}
+    hr{border:$borders}
+}
+.boxes{width:$fullwidth;
+&{display:grid; grid-template-columns: auto auto ; grid-gap:20px; padding:20px;
+    .item1{ box-shadow: 0px 1px 5px 0px #bebdbd}
+     & p{color: #4e4e4e; font-size: 16px; font-weight:600; margin-left: 10px;}
+    }
+}
+
+.selector p{margin-top: 20px 0 10px 0;
+    & span{color:#616161; float:right; margin:-3px 10px 0px 0px; font-size: 20px;
+        a{color:#868686}
+ 
+    }
+}
+
+                          /*right section start  */
+.right-section{float:left; width:30%; padding:10px }
+.minimum-order{width:$fullwidth; padding:12px; border-radius: 8px; background-color:#f5a623;
+    color:$color; font-size:15px; font-weight:500 !important; text-align: center;
+    a{color:$color; font-weight: 300;}
+}
+.container-content-2{margin:5px 10px 10px 10px;}
+.progress-bar{height:22px; margin:20px 0; border-radius: 4px; background: #a9db71;
+    box-shadow:$boxshadow; } 
+.your-cart{padding:5px 15px 120px 15px; background-color:$color; color:#585858; text-align:center;
+    box-shadow: $shadow;
+    p{text-align: left; font-size:20px; margin-top:10px; font-weight: 500;}
+}
+
+.selectors {
+        span{margin-right:30px}
+        a{color:#858383; padding:0 10px; font-size:20px} 
+    }
+table{color:#858383; width:100%; 
+    .firstcol{float:left;}
+    .thirdcol{float:right;}
+    td{font-weight:300; padding:15px 0;}
+}
+.place-order{margin:20px 0; height:35px; background-color: #d0021b; color:$color; text-align:center;
+padding-top:10px;
+    a{color:$color;}
+}
+
+
+$value: img1, img2, img3, img4, img5, img6;
+@each $items in $value{
+    .#{$items}{
+        background:url("images/#{$items}.jpg");
+        @include imagesize
+    }
+}
+
+/********************************Media query****************************/
+
+
+body{
+    @include media(tab){
+        .boxes{display:block !important; padding:0px;
+            .item1{padding:15px}
+        }
+        .left-section{display:block; width:$fullwidth;}
+        .right-section{display:block; width:$fullwidth; padding:30px 0px 10px 10px }
+        .logo h2{color:#d4162d; padding:12px 20px; float:left; font-size:18px}
+        .header{height:40px; width:$fullwidth; }
+    }
+
+    @include media(port){
+        .container-content .head h5{font-size: 16px;}
+         p{font-size: 15px;}
+         
+    }
+    @include media(port768){
+        .minimum-order{width:$fullwidth; padding:25px; border-radius: 8px; background-color:#f5a623;
+            color:$color; font-size:16px; font-weight:500 !important; text-align: center;}
+        .your-cart p{ font-size:17px;}
+               
+        .selectors {
+                span{margin-right:0px; font-size:10px; padding:0 0;  display:inline-block}
+                a{color:#858383; font-size:10px; } 
+            } 
+            table{color:#858383; width:100%;;
+                .firstcol{float:left; font-size:12px; margin-top:-20px}
+                .thirdcol{ font-size:12px}
+            }
+        
+        }
+  
+    @include media(mobile320){
+        .your-cart p{ font-size:17px;}
+        }
+        
+        .selectors {
+                span{margin-right:30px}
+                a{color:#858383; padding:0 0px; font-size:14px} 
+ }
+        
+}    
+
+
